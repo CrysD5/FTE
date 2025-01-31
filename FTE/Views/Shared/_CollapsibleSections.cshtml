@@ -1,0 +1,52 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div class="container">
+    <h2 class="collapsible">Overview & Purpose</h2>
+    <div class="collapsible-content">
+        <p>Front Towards Enemy (FTE) is a veteran-owned and operated training and consulting company...</p>
+        <ul>
+            <li>Medical</li>
+            <li>Unarmed Defense</li>
+            <li>...</li>
+        </ul>
+        <p>Whether you are a protection specialist...</p>
+    </div>
+
+    <h2 class="collapsible">Firearms Training</h2>
+    <div class="collapsible-content">
+        <p>Carrying a firearm is a significant responsibility...</p>
+    </div>
+
+    @* ... (Rest of your collapsible sections) ... *@
+
+    <h2 class="collapsible">Pricing</h2>
+    <div class="collapsible-content">
+        <p>Our training packages are designed to provide flexible options...</p>
+        <ul>
+            <li>1-Pillar Training Package: $600 per week</li>
+            <li>...</li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    // JavaScript for collapsible functionality (same as before)
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        });
+    }
+</script>
