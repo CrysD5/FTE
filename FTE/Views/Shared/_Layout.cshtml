@@ -8,11 +8,105 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/FTE.styles.css" asp-append-version="true" />
-    @* <style></style> *@
+    <style>
+        hr {
+            margin: 8px 0;
+        }
+        /* change position from absolute to relative when collapsibles are active so they don't run into footer */
+        footer {
+            position: absolute; /* Default: Stay at the bottom */
+            bottom: 0;
+            width: 100%;
+            white-space: nowrap;
+            line-height: 5px;
+            background-color: #222; /* Adjust color as needed */
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            /* background-color: whitesmoke; */
+        }
+
+            body::before {
+                content: "";
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: url('/img/background-image3.jpg') no-repeat center center fixed;
+                background-size: cover;
+                opacity: 0.5;
+                z-index: -1; /* Push it behind the content */
+            }
+
+        .text-center {
+            background: rgba(0, 0, 0, 0.6); /* Dark overlay for readability */
+            padding: 10px;
+            border-radius: 10px;
+            color: #fbf6f0;
+        }
+
+        h1.display-4 {
+            font-size: 3rem;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        h2.collapsible {
+            background-color: #4CAF50D9;
+            color: white;
+            border: none;
+            padding: 5px;
+            font-size: 18px;
+            text-align: left;
+            cursor: pointer;
+            outline: none;
+            margin: 5px 0;
+            border-radius: 5px;
+            max-width: fit-content;
+        }
+
+        .collapsible.active {
+            background-color: #4CAF50D9;
+            max-width: fit-content;
+        }
+
+        .collapsible-content {
+            background-color: #f4f4f485;
+            padding: 20px;
+            color: #333;
+            border-radius: 5px;
+            margin: 10px 0;
+            display: none;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .contact-container {
+            background-color: #f4f4f485;
+            padding: 20px;
+            color: #333;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin: 5px 0;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">FTE</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -22,10 +116,10 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Contact</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Contact</a>
                         </li>
                     </ul>
                 </div>
@@ -38,17 +132,17 @@
         </main>
     </div>
 
-    <footer class="border-top footer">
+    <footer>
         <div class="container">
-            &copy; 2025 - FTE - <a asp-area="" asp-controller="Home" asp-action="Privacy">FAQs</a>
+            &copy; 2025 - FTE - Front Towards Enemy. All rights reserved. - <a asp-area="" asp-controller="Home" asp-action="Privacy">FAQs</a>
         </div>
     </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)  
-@* 
+    @await RenderSectionAsync("Scripts", required: false)
+
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const collapsibles = document.querySelectorAll(".collapsible");
@@ -75,6 +169,6 @@
 
             updateFooterPosition();
         });
-    </script> *@
+    </script>
 </body>
 </html>
